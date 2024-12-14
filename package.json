@@ -1,7 +1,7 @@
 {
-  "name": "@devboidesigns/npm-template",
-  "version": "0.0.1",
-  "description": "",
+  "name": "@devboidesigns/logger",
+  "version": "1.0.0",
+  "description": "Winston Logging API Wrapper",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -13,20 +13,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DevboiDesigns/npm-template.git"
+    "url": "https://github.com/DevboiDesigns/logger.git"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && npm run test",
     "test": "jest"
   },
   "author": "Christopher Hicks",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^5.0.0",
     "@types/jest": "^29.5.13",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "jest": "^29.7.0",
+    "plaid": "^30.0.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "tsup": "^8.3.0",
     "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "winston": "^3.17.0"
   }
 }
