@@ -40,4 +40,20 @@ describe("log.error Tests", () => {
       service: "Error Test 3",
     })
   })
+
+  //* 4. Test logging with a custom error that is json object (error on error test)
+  const error4 = { test: "Hello, Universe 4!" } // example third party api error response
+  const err4 = errHandler(error4)
+  log.error(err4)
+  it("should log an error message with the optional parameters to pass in", () => {
+    log.error = jest.fn()
+    const errorJson = { test: "Hello, Universe 4!" } // example third party api error response
+    const errJs = errHandler(errorJson)
+    log.error(errJs)
+    expect(log.error).toHaveBeenCalledWith(
+      Error(
+        'This value was thrown as is, not through an Error: {"test":"Hello, Universe 4!"}'
+      )
+    )
+  })
 })
